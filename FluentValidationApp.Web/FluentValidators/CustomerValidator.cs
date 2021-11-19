@@ -25,6 +25,8 @@ namespace FluentValidationApp.Web.FluentValidators
 
             RuleForEach(x => x.Addresses).SetValidator(new AddressValidator());
 
+            RuleFor(x=>x.Gender).IsInEnum().WithMessage("{ PropertyName} alani Erkek=1, Bayan=2 olmalidir.").NotEmpty().WithMessage(NotEmptyMessage);
+
         }
     }
 }
