@@ -19,5 +19,16 @@ namespace FluentValidationApp.Web.Models
 
         public Gender Gender { get; set; }
 
+        public string GetFullName() // Metodun AutoMapper ile dönüstürülmesi icin basina Get eki konur. Aksi durumda, manuel olarak dönüstürme islemi tanimlanmalidir.
+        {
+            return $"{Name} - {Email} - {Age}";
+        }
+
+        public string FullName2() 
+        {
+            return $"{Name} - {Email} - {Age}";
+        }
+
+        public CreditCard CreditCard { get; set; }
     }
 }
