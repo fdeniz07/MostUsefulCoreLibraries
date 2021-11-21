@@ -29,6 +29,8 @@ namespace FluentValidationApp.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup)); // Automapper in kullanilacagi Assembly altinden bir sinif veriyoruz. O ilgili assembly altinda IMapper interface'ini kullanan siniflari tarayip bulacaktir.
+
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConStr"]);
