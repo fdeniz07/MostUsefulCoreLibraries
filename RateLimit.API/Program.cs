@@ -1,11 +1,7 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RateLimit.API
 {
@@ -13,7 +9,27 @@ namespace RateLimit.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            //CreateHostBuilder(args).Build().Run();
+
+            var webhost = CreateHostBuilder(args).Build();
+
+
+            //IP-Rate Ayarlari\\
+            //var IpPolicy = webhost.Services.GetRequiredService<IIpPolicyStore>();
+
+            /*GetService() ile GetServiceRequired arasindaki Fark
+             *
+             * GetService() kullanildiginda ilgili servis yoksa geriye null döner
+             * GetRequiredService() kullanildiginda ilgili servis yoksa geriye hata firlatir.
+             *
+             * Eger bir servisin olmasi bekleniyorsa ve bu servis olmazsa uygulama patlayacaksa, mutlaka GetRequiredService() kullanilmalidir.
+             */
+
+            //IpPolicy.SeedAsync().Wait();
+
+            //IP-Rate Ayarlari\\
+
+            webhost.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
