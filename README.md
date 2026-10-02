@@ -16,7 +16,7 @@ Most Useful Libraries on Asp.Net.Core (MVC &amp; API)
 
 ### NLog Library
 
-### angfire library
+### Hangfire library
 
 ### How should we handle error management and error pages in our AspNet Core Web applications.
 
